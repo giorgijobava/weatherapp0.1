@@ -1,0 +1,261 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://img.freepik.com/premium-photo/sky-blue-sky-background-with-white-clouds-middle-sunny-day_262795-1439.jpg) no-repeat center center/cover;
+    filter: blur(8px); 
+    z-index: -1;
+}
+.weather-slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.weather-slide {
+    display: none; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.weather-slide.active {
+    display: grid; 
+}
+
+.weather-card {
+    background-color: #80d0ff;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.weather-card h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.weather-card .date-time {
+    font-size: 16px;
+    color: #e7f6ff;
+    margin-bottom: 15px;
+}
+
+.weather-card .temperature {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.weather-card .humidity,
+.weather-card .wind {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dbefff;
+    margin-bottom: 5px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.page-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.page-btn {
+    background-color: #80d0ff;
+    border: none;
+    color: white;
+    padding: 12px 20px; 
+    font-size: 16px; 
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.page-btn.active {
+    background-color: #4caf50;
+    font-weight: bold;
+}
+
+.page-btn:hover {
+    background-color: #388e3c;
+}
+
+.prev-btn,
+.next-btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 14px 25px; 
+    font-size: 18px; 
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #388e3c;
+}
+
+.prev-btn:disabled,
+.next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+    .weather-slide {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .weather-card h3 {
+        font-size: 24px;
+    }
+
+    .weather-card .temperature {
+        font-size: 32px;
+    }
+
+    .weather-card .humidity,
+    .weather-card .wind {
+        font-size: 16px;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding: 12px 20px; 
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .weather-slide {
+        grid-template-columns: 1fr; 
+    }
+
+    .weather-card {
+        padding: 20px;
+    }
+
+    .weather-card h3 {
+        font-size: 22px;
+    }
+
+    .weather-card .temperature {
+        font-size: 28px;
+    }
+
+    .pagination-container {
+        gap: 5px;
+    }
+
+    .page-btn {
+        padding: 12px 18px; 
+        font-size: 14px;
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding: 12px 18px; 
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .weather-card {
+        padding: 15px;
+    }
+
+    .weather-card h3 {
+        font-size: 18px;
+    }
+
+    .weather-card .temperature {
+        font-size: 24px;
+    }
+
+    .weather-card .humidity,
+    .weather-card .wind {
+        font-size: 14px;
+    }
+
+    .pagination-container {
+        gap: 5px;
+    }
+
+    .page-btn {
+        padding: 10px 15px; 
+        font-size: 12px;
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding: 10px 15px; 
+        font-size: 12px;
+    }
+}
+
+
+#backBtn {
+    background-color: #4a90e2; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold;
+    border-radius: 8px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+#backBtn:hover {
+    background-color:   #7cb9ff; 
+    transform: scale(1.05); 
+}
+
+#backBtn:active {
+    background-color: #0500a1; 
+    transform: scale(0.95); 
+}
+
+.backbtn{
+    margin-left: 1%;
+}

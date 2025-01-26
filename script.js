@@ -14,7 +14,6 @@ feelsVal = document.getElementById('feelsVal'),
 hourlyForecastCard = document.querySelector('.hourly-forecast'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
-
 function getWeatherDetails(name, lat, lon, country, state) {
     sessionStorage.setItem('lastSearchedCity', JSON.stringify({ name, lat, lon, country, state }));
     let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
@@ -210,7 +209,7 @@ function getCityCoordinates() {
         return;
     }
 
-    let GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
+    let GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
     fetch(GEOCODING_API_URL)
         .then(res => {
             if (!res.ok) throw new Error("Failed to fetch city coordinates");
@@ -244,6 +243,7 @@ function getUserCoordinates(){
         });
     })
 }
+
 function darkmode() {
     const body = document.body;
     const wasDarkmode = localStorage.getItem('darkmode') === 'true';
@@ -265,6 +265,9 @@ if (sessionStorage.getItem('lastSearchedCity')) {
 
 document.getElementById('aboutBtn1').addEventListener('click', function() {
     window.location.href = 'details.html';
+});
+document.getElementById('aboutBtn2').addEventListener('click', () => {
+    window.location.href = 'katalog.html'; 
 });
 
 searchBtn.addEventListener('click', getCityCoordinates);
