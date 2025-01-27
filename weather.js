@@ -100,7 +100,6 @@ export function getWeatherDetails(name, lat, lon, country, state) {
         })
         .catch(() => alert('Failed to fetch current weather'));
 
-    // Fetch для прогноза
     fetch(FORECAST_API_URL)
         .then(res => res.json())
         .then(data => {
